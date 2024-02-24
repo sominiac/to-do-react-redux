@@ -1,0 +1,20 @@
+@import "../global/variable";
+
+$header-height: 200px;
+
+.app {
+  padding: 10px 0;
+
+  &__inner {
+    height: calc(100vh - ($page-top-padding * 2));
+  }
+
+  &__header {
+    height: $header-height;
+  }
+
+  &__main {
+    height: calc(100% - $header-height);
+    padding-top: $page-main-top-margin;
+  }
+}

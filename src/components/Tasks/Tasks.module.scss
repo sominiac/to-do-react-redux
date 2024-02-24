@@ -1,0 +1,31 @@
+@import "../../assets/styles/global/variable";
+
+$padding-top: 50px;
+$completed-tasks-padding-top: 30px;
+
+.tasks {
+  height: 50%;
+  min-height: 50%;
+  display: flex;
+  align-items: start;
+
+  &__titleWrapper {
+    max-width: 200px;
+    min-width: 200px;
+    height: 100%;
+    margin-right: 30px;
+    padding-right: 10px;
+    border-right: 3px solid $color-placeholder;
+  }
+
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.completedTasks {
+  height: calc(50% - $completed-tasks-padding-top);
+  padding-top: $completed-tasks-padding-top;
+}
