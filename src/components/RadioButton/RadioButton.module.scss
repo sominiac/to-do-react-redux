@@ -1,6 +1,9 @@
 @import "../../assets/styles/global/variable";
 
 .radioButton {
+  display: flex;
+  align-items: center;
+  
   &__input {
     width: 25px;
     height: 25px;

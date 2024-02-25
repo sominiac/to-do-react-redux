@@ -1,11 +1,10 @@
 import styles from "./RadioButton.module.scss";
 
-export default function RadioButton() {
+export default function RadioButton({id, text, onChange}) {
     return (
-        <>
-            <input className={styles.radioButton__input} id="task-check-button" type="radio"/>
-            <label className={styles.radioButton__text} htmlFor="task-check-button" title="Сходить в магазин">Сходить в
-                магазин</label>
-        </>
+        <div className={styles.radioButton}>
+            <input className={styles.radioButton__input} id={id} type="radio" onChange={onChange}/>
+            <label className={styles.radioButton__text} htmlFor={id} title={text}>{text}</label>
+        </div>
     )
 };
