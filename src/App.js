@@ -35,6 +35,7 @@ function App() {
                         <Tasks
                             tasksList={tasks}
                             toggleTaskState={toggleTaskState}
+                            setTasks={setTasks}
                             isCurrentTasks/>
                         <Tasks
                             tasksList={completedTasks}
