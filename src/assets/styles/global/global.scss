@@ -11,3 +11,14 @@ body {
   overflow: auto;
   background-color: $color-light;
 }
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  outline: none;
+  background-color: $color-light;
+  border: none;
+  cursor: pointer;
+}
