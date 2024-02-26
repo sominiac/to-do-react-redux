@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useSelector} from "react-redux";
 
 import Tasks from "./components/Tasks";
 
@@ -6,23 +6,8 @@ import containerStyles from "./assets/styles/layout/container.module.scss";
 import styles from "./assets/styles/pages/App.module.scss";
 
 function App() {
-    const [tasks, setTasks] = useState([{
-        id: "Сходить в магазин",
-        text: "Сходить в магазин"
-    }]);
-    const [completedTasks, setCompletedTasks] = useState([]);
-
-    const toggleTaskState = (tasksList, task, isCurrentTasks) => {
-        const updatedTasksList = tasksList.filter(({id}) => id !== task.id);
-
-        if (isCurrentTasks) {
-            setTasks(updatedTasksList);
-            setCompletedTasks([...completedTasks, task]);
-        } else {
-            setCompletedTasks(updatedTasksList);
-            setTasks([...tasks, task]);
-        }
-    }
+    const tasks = useSelector((state) => state.tasks.currentTasks);
+    const completedTasks = useSelector((state) => state.tasks.completedTasks);
 
     return (
         <div className={styles.app}>
@@ -34,12 +19,9 @@ function App() {
                     <main className={styles.app__main}>
                         <Tasks
                             tasksList={tasks}
-                            toggleTaskState={toggleTaskState}
-                            setTasks={setTasks}
                             isCurrentTasks/>
                         <Tasks
-                            tasksList={completedTasks}
-                            toggleTaskState={toggleTaskState}/>
+                            tasksList={completedTasks}/>
                     </main>
                 </div>
             </div>

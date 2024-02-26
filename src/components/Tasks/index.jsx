@@ -1,19 +1,23 @@
+import {useDispatch} from "react-redux";
+import {toggleTaskState, addNewTask} from "../../store/slice";
+
 import Task from "../Task";
 import AddTask from "../AddTask";
 
 import styles from "./Tasks.module.scss";
 
-export default function Tasks({isCurrentTasks, tasksList, toggleTaskState, setTasks}) {
+export default function Tasks({isCurrentTasks, tasksList}) {
     const CURRENT_TASKS_TITLE = "Текущие задачи";
     const COMPLETED_TASKS_TITLE = "Завершённые задачи";
     const tasksTitle = isCurrentTasks ? CURRENT_TASKS_TITLE : COMPLETED_TASKS_TITLE;
+    const dispatch = useDispatch();
 
     const _toggleTaskState = (task) => {
-        toggleTaskState(tasksList, task, isCurrentTasks);
+        dispatch(toggleTaskState({task, isCurrentTasks}));
     };
 
     const onAddNewTask = (taskText) => {
-        setTasks([...tasksList, {id: `${taskText}${tasksList.length}`, text: taskText}]);
+        dispatch(addNewTask({taskText}));
     };
 
     return (
