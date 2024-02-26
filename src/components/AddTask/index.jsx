@@ -9,7 +9,9 @@ export default function AddTask({addNewTask}) {
         setNewTaskText(event.target.value);
     }
     const onClickAddNewButton = () => {
-        addNewTask(newTaskText);
+        if (newTaskText) {
+            addNewTask(newTaskText);
+        }
     }
 
     return (
